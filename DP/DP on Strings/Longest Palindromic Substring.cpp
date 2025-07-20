@@ -96,7 +96,7 @@ public:
         //t[i][j] = lps in s[i...j]
 
         int startingIdx = 0;
-        int maxL = 1;
+        int maxL = 0;
 
         for(int L = 1; L<=n; L++) {
             for(int i = 0; i+L-1<n; i++) {
@@ -134,7 +134,6 @@ public:
         vector<vector<bool>> t(n, vector<bool>(n));
         //t[i][j] = lps in s[i...j]
         
-        maxL = 1; //every letter is a substring and pallindrome as well
         for(int i = 0; i<n; i++) {
             t[i][i] = true;
             /*
