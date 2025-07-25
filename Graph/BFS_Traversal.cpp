@@ -27,7 +27,7 @@ class Solution {
     vector<int> bfs(vector<vector<int>> &adj) {
         int n = adj.size();
         
-        vector<bool> visited(n);
+        vector<bool> visited(n, false);
         vector<int> result;
         
         for(int i = 0; i<n; i++) {
