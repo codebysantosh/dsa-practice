@@ -89,7 +89,7 @@ class Solution {
             adj[v].push_back(u);
         }
         
-        vector<bool> visited(V);
+        vector<bool> visited(V, false);
         
         for(int i = 0; i<V; i++) {
             if(!visited[i] && BFS(adj, i, visited)) {
