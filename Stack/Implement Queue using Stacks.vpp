@@ -1,0 +1,49 @@
+//T.C : push - O(1), pop - Amortized O(1) , peek() - O(1), empty() - O(1)
+//S.C : O(n)
+class MyQueue {
+public:
+    stack<int> input;
+    stack<int> output;
+    int peakEl = -1;
+
+    MyQueue() {
+        
+    }
+    
+    void push(int x) {
+        if(input.empty()) {
+            peakEl = x;
+        }
+
+        input.push(x);
+    }
+    
+    int pop() {
+        if(output.empty()) {
+            while(!input.empty()) {
+                output.push(input.top());
+                input.pop();
+            }
+        }
+
+        int val = output.top();
+        output.pop();
+        return val;
+    }
+    
+    int peek() {
+        if(output.empty()) {
+            return peakEl;
+        }
+
+        return output.top();
+    }
+    
+    bool empty() {
+        if(output.empty() && input.empty()) {
+            return true;
+        }
+        return false;
+    }
+};
+
