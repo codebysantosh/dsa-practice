@@ -1,4 +1,4 @@
-//T.C : O(4^(n^2))
+//T.C : O(3^(n^2))
 //S.C : O(L * X) - L = Length of path, X = number of paths
 class Solution {
   public:
