@@ -45,3 +45,37 @@ public:
         return result;
     }
 };
+
+//Approach-2 (Smart Recursion)
+//T.C : O(2^n)
+//S.C : O(2*n) -> Removing constant -> O(n) -> recursion stack space - Max depth of recusion tree
+class Solution {
+public:
+    vector<string> result;
+
+    void solve(string &temp, int n, int open, int close) {
+        if(temp.size() == 2*n) {
+            result.push_back(temp);
+            return;
+        }
+
+        if(open < n) {
+            temp.push_back('(');
+            solve(temp, n, open+1, close);
+            temp.pop_back();
+        }
+
+        if(close < open) {
+            temp.push_back(')');
+            solve(temp, n, open, close+1);
+            temp.pop_back();
+        }
+    }
+
+    vector<string> generateParenthesis(int n) {
+        string temp = "";
+        int open = 0, close = 0;
+        solve(temp, n, open, close);
+        return result;
+    }
+};
