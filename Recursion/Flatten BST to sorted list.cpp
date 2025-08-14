@@ -1,5 +1,5 @@
 //T.C : O(n^2)
-//S.C : Auxiliary Space is O(1) and Stack Space due to recursion is O(n)
+//S.C : Auxiliary Space is O(1) and Stack Space due to recursion is O(h)
 class Solution {
   public:
     Node *flattenBST(Node *root) {
