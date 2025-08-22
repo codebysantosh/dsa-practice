@@ -24,25 +24,16 @@ public:
 //S.C = O(1)
 class Solution {
 public:
-    ListNode* last = NULL;
-    ListNode* solve(ListNode* head) {
-        if(head == NULL) {
-            return NULL;
+    ListNode* reverseList(ListNode* head) {
+        if(head == NULL || head->next == NULL) {
+            return head;
         }
 
-        ListNode* rVal = solve(head->next);
-        
-        if(rVal == NULL) {
-            last = head;
-        } else {
-            head->next->next = head;
-            head->next = NULL;
-        }
+        ListNode* last = reverseList(head->next);
+
+        head->next->next = head;
+        head->next = NULL;
 
         return last;
-    }
-
-    ListNode* reverseList(ListNode* head) {
-       return  solve(head);
     }
 };
